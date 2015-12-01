@@ -3,25 +3,34 @@
 %>
 
 <header>
-	<div class="wrapper">
-		<div class="headerTop">
-			<%- widgets['ul-id-icon-logo']  %>
-			<%- widgets['ul-id-header-sitename']  %>
-		</div>
-		<div class="headerBottom">
-			<%- widgets['ul-id-contacts-top'] %>
-		</div>
-	</div>
-
-	<div class="bottom-bar">
-		<div class="bottom-bar-wrap container">
-			<div class="menu-container col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="mainmenu-box">
-					<%- widgets['ul-id-mainmenu-main'] %>
-				</div>
+	<div class="h-top">
+		<div class="container">
+			<div class="h-cont">
+				<%- widgets['ul-id-contacts-head'] %>
 			</div>
 		</div>
-	</div>  
+	</div>
+	<div class="h-main">
+		<div class="container">
+			<div class="row">
+                <div class="logo-head col-xs-10 col-sm-6 col-md-6 col-lg-6">
+                    <div class="table">
+                        <div class="h-img">
+                            <%- widgets['ul-id-icon-header'] %>
+                        </div>
+                        <div class="h-logo">
+                            <%- widgets['ul-id-header-sitename']  %>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-head col-xs-2 col-sm-6 col-md-6 col-lg-6">
+                    <div class="mainmenu-box">
+                        <%- widgets['ul-id-mainmenu-main'] %>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
 </header>
 
 <div id="ul-content">
