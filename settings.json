@@ -1,0 +1,47 @@
+{
+	"colorThemes": {
+		"site": {
+			"g-theme-site-1": {
+				"preview"  : ["#fffaaa", "#eeeaaa", "#dddaaa"]
+			}
+		}
+	},
+	"widgetsDesigns": {
+		"goods": {
+			"default": { "layout": "default" },
+			"goods-full1": { "layout": "html1" },
+			"design3": { "layout": "html2" },
+			"design4": { "layout": "html3" }
+		},
+		"bloquote": {
+			"design1": { "layout": "design1", "oldDesign": "design1" },
+			"design2": { "layout": "design1", "oldDesign": "design2" }
+		},
+		"review": {
+			"design1": { "layout": "design1" },
+			"design2": { "layout": "design2" }
+		},
+		"social": {
+			"design1": { "layout": "design1", "oldDesign": "design1" },
+			"design2": { "layout": "design1", "oldDesign": "design2" },
+			"design3": { "layout": "design1", "oldDesign": "design3" }
+		},
+		"contacts": {
+			"design1": { "layout": "design1" },
+			"design2": { "layout": "design2" },
+			"design3": { "layout": "design1" }
+		},
+		"price": {
+			"horizontal": { "layout": "design1", "oldDesign": "horizontal" },
+			"vertical"  : { "layout": "design2", "oldDesign": "vertical" }
+		},
+		"worktime": {
+			"design1": { "layout": "design1" }
+		},
+		"downloadFile": {
+			"1": { "layout": "design1", "oldDesign": "1" },
+			"2": { "layout": "design1", "oldDesign": "2" },
+			"3": { "layout": "design1", "oldDesign": "3" }
+		}
+	}
+}
