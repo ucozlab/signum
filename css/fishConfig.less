@@ -697,25 +697,32 @@
 
 .sliderWysiwyg {
 	.behavior() {
-		.owl-wrapper-outer .ul-slider-item-overlay{
-			margin: 0;
-			.ul-slider-item-text {
-				h2, h3, h4, h5, h6 {
+		.owl-wrapper-outer {
+			.ul-slider-item {
+				&-overlay {
 					margin: 0;
-					word-break: break-word;
+					&-position-center {
+						transform: translate(-50%, -51%);
+						-webkit-transform: translate(-50%, -51%);
+						-moz-transform: translate(-50%, -51%);
+					}
+					&-edit {
+						.border-radius(5px, 5px, 5px, 5px);
+					}
 				}
-				h2 {  }
-				h3 { }
-				h4 {  }
-				h5 {
+				&-text {
+					h2, h3, h4, h5, h6 {
+						margin: 0;
+						word-break: break-word;
+					}
+					h2 {  }
+					h3 { }
+					h4 {  }
+					h5 {
+					}
+					h6 {
+					}
 				}
-				h6 {
-				}
-			}
-			&.ul-overlay-position-center {
-				transform: translate(-50%, -51%);
-				-webkit-transform: translate(-50%, -51%);
-				-moz-transform: translate(-50%, -51%);
 			}
 		}
 		.owl-controls {
