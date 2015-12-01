@@ -227,22 +227,22 @@
 .mainmenu {
 	.behavior() {
 		// Переменные для отображения меню в десктопном виде
-		@menu-leftMargin: 10px;                 // Отступ слева и справа у меню
+		@menu-leftMargin: 0;                 // Отступ слева и справа у меню
 		@menu-topMargin: 0px;                   // Отступ сверху у всего меню
-		@menu-height: 75px;                     // Высота меню
+		@menu-height: 70px;                     // Высота меню
 
 		// Переменные для настройки внешнего вида ссылок
 		@menuNav-fontSize: 15px;                // Размер шрифта верхнего уровня
 		@menuNested-fontSize: 15px;             // Размер шрифта вложенного меню
 		@menuMobile-fontSize: 15px;             // Размер шрифта мобильного меню
-		@menu-fontFamily: Helvetica;            // Стиль шрифта у ссылок верхнего уровня
+		@menu-fontFamily: inherit;            // Стиль шрифта у ссылок верхнего уровня
 		@menu-fontWeight: normal;               // Жирность шрифта у ссылок верхнего уровня
 		@menu-textDecotarion: none;             // Подчеркивание текста у ссылок верхнего уровня
-		@menu-textTransform: uppercase;         // Трансформирование текста у ссылок верхнего уровня
+		@menu-textTransform: none;         // Трансформирование текста у ссылок верхнего уровня
 
 		// Переменные для настройки размеров и отступов
-		@menuNav-itemLeftPadding: 0px;          // Отступ слева и справа у блоков верхнего уровня
-		@menuNav-itemLinkTopPadding: 30px;      // Отступ сверху и снизу у ссылки верхнего уровня
+		@menuNav-itemLeftPadding: 5px;          // Отступ слева и справа у блоков верхнего уровня
+		@menuNav-itemLinkTopPadding: 15px;      // Отступ сверху и снизу у ссылки верхнего уровня
 		@menuNested-itemLinkTopPadding: 15px;   // Отступ сверху и снизу у ссылки вложенного меню
 		@menu-itemLinkLeftPadding: 20px;        // Отступ слева и справа у ссылки всех уровней
 
@@ -282,79 +282,143 @@
 
 		.leftSideMenu { .textRight(); }
 		.rightSideMenu { .textRight(); }
-		.ul-w-mainmenu-toggle-button {
-			position: absolute !important;
-		}
+		.ul-w-mainmenu-toggle-button { position: absolute !important; }
 		.menuMixin();
 
 		-webkit-justify-content: flex-end;
 		justify-content: flex-end;
 
+        //------//
+
+        &.desktop, &.htablet {
+            > .ul-w-mainmenu-item, > .ul-w-mainmenu-toggle {
+                // Стили пункта меню верхнего уровня
+                a {
+                    // Стили всех ссылок на всех уровнях
+                    .transition();
+			        .border-radius(5px, 5px, 5px, 5px);
+                    display: inline-block !important;
+                    border: 2px solid transparent;
+                }
+                &.ul-w-mainmenu-have-nested {
+                    // Стили пункта меню, содержащего вложенный список
+                    & > a:after {
+                        // Стили иконки пункта меню, содержащего вложенный список
+                        margin: 0 0 0 5px !important;
+                    }
+                }
+                &.ul-w-mainmenu-have-nested .ul-w-mainmenu-nested,
+                .ul-w-mainmenu-toggle-nested {
+                    // Стили всех вложенных списков
+                    .border-radius(5px, 5px, 5px, 5px);
+                    .ul-w-mainmenu-item {
+                        .rightSideMenu(); // выравнивание вложеных пунктов
+                        &.ul-w-mainmenu-have-nested {
+                            // Стили подпункта меню, содержащего вложенный список
+                            & > a:before, // Стили символа влево вложенного меню
+                            & > a:after { // Стили символа вправо вложенного меню
+                                margin: -1px 5px 0 5px;
+                            }
+                        }
+                    }
+                }
+                & > .ul-w-mainmenu-nested, .ul-w-mainmenu-toggle-nested { // Стили вложенного подменю 1 уровня
+                    min-width: 100%;
+                }
+            }
+        }
+
+        &.vtablet, &.mobile {
+            .ul-w-mainmenu-item {
+                // Стили всех пунктов меню
+                & > a {
+                    // Стили ссылки пункта меню
+                    .transition;
+                    padding: 4px 0 !important;
+                    margin: 5px 15px !important;
+                    display: inline-block;
+                    width: auto;
+                    border-bottom: 1px solid transparent;
+                }
+            }
+            .ul-w-mainmenu-toggle-button {
+                // Стили кнопки, раскрывающей меню
+                right: 0;
+                & > span {
+                    // Стили линий внутри кнопки
+                    .transition;
+                }
+            }
+            .ul-w-mainmenu-toggle { display: none; }
+        }
 	}
 
 	.blockTheme(@blockBg, @text1, @text2, @text3) {
-		@block1r: e(`config.blocks.get(@{site}, 1).value`); @block1: color("@{block1r}");
+
+        @block1r: e(`config.blocks.get(@{site}, 1).value`); @block1: color("@{block1r}");
 		@block2r: e(`config.blocks.get(@{site}, 2).value`); @block2: color("@{block2r}");
 		@block3r: e(`config.blocks.get(@{site}, 3).value`); @block3: color("@{block3r}");
 		@block4r: e(`config.blocks.get(@{site}, 4).value`); @block4: color("@{block4r}");
 
-		.menuNav-activeItem {
-			background-color: transparent !important;
-			& > a { color: @block3 !important; }
-		}
-		.menuNested-activeItem {
-			background-color: @block3 !important;
-			& > a { color: @block1 !important; }
-		}
+		.menuNav-activeItem,
+		.menuNested-activeItem,
 		.menuMobile-activeItem {
-			background-color: transparent !important;
-			& > a { color: @block3 !important; }
-		}
-
-		.menuNav-colors {
-			.transition();
-			background-color: transparent;
 			& > a {
-				.transition();
-				color: @block4;
-			}
+                position: initial !important;
+                color: @text1 !important;
+            }
+		}
+		.menuNav-colors {
+			& > a { color: @text2; }
 			&:hover {
 				background-color: transparent;
-				& > a:hover { color: @block3; }
+                & > a {
+                    &:hover {
+                        border-color: @text2 !important;
+                        color: @text1 !important;
+                    }
+                   // &:before,
+                  //  &:after { color: @text2; }
+                }
 			}
 		}
-
 		.menuNested-colors {
-			.transition();
-			background-color: @block4;
 			& > a {
-				color: @block1;
+				color: blockBg;
+                &:hover {
+                    color: @blockBg !important;
+                    border-color: @blockBg !important;
+                }
 			}
-			&:hover {
-				background-color: @block3;
-			}
+            &.ul-w-mainmenu-have-nasted:hover > a {
+              //  &:before,
+              //  &:after { color: @text2 !important; }
+            }
 		}
 
 		.menuMobile-colors {
-			.transition();
-			background-color: transparent;
-			& > a {
-				.transition();
-				color: @block4;
-			}
+			& > a { color: inherit; }
 			&:hover {
-				background-color: transparent;
-				& > a:hover { color: @block3; }
+				& > a:hover {
+                    border-bottom-color: @text2 !important;
+                    color: @text2 !important;
+                }
 			}
 		}
 
 		.menuMobile-button {
-			border: 2px solid @block3;
-			background-color: transparent;
-			span { background-color: @block3; }
+			span { background-color: @text1; }
 		}
 
 		.menuMixinColor();
+
+        .ul-w-mainmenu-nested,
+        .ul-w-mainmenu-toggle-nested { background-color: @text2; }
+
+        /*& when (@block = 2) {
+            .ul-w-mainmenu-nested,
+            .ul-w-mainmenu-toggle-nested { background-color: @text2 !important; }
+        }*/
 	}
 }
 

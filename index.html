@@ -4,31 +4,37 @@
 
 <header>
 	<div class="h-top">
-		<div class="container">
-			<div class="h-cont">
-				<%- widgets['ul-id-contacts-head'] %>
-			</div>
+		<div class="container-fluid">
+			<div class="row">
+                <div class="h-cont col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <%- widgets['ul-id-contacts-head'] %>
+                </div>
+            </div>
 		</div>
 	</div>
 	<div class="h-main">
 		<div class="container">
-			<div class="row">
-                <div class="logo-head col-xs-10 col-sm-6 col-md-6 col-lg-6">
-                    <div class="table">
-                        <div class="h-img">
-                            <%- widgets['ul-id-icon-header'] %>
-                        </div>
-                        <div class="h-logo">
-                            <%- widgets['ul-id-header-sitename']  %>
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="logo-head col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <%- widgets['ul-id-icon-header'] %>
                 </div>
-                <div class="menu-head col-xs-2 col-sm-6 col-md-6 col-lg-6">
+            </div>
+            <div class="row">
+                <div class="sitename-head col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <%- widgets['ul-id-header-sitename']  %>
+                </div>
+            </div>
+		</div>
+	</div>
+	<div class="h-menu">
+		<div class="container">
+            <div class="row">
+                <div class="menu-head col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="mainmenu-box">
                         <%- widgets['ul-id-mainmenu-main'] %>
                     </div>
                 </div>
-			</div>
+            </div>
 		</div>
 	</div>
 </header>
