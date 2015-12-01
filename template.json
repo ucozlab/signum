@@ -1,0 +1,73 @@
+{
+	"themes": {
+		"main": {
+			"css": "/thavel/css/main.css"
+		}
+	},
+	"defaultTheme": "main",
+	"defaultData": {
+		"menu" : {
+			"children": [
+				{
+					"url": "index",
+					"title": "О нас",
+					"visibility": "true"
+				},
+				{
+					"url": "gallery",
+					"title": "Галлерея",
+					"visibility": "true"
+				},
+				{
+					"url": "event",
+					"title": "События",
+					"visibility": "true"
+				},
+				{
+					"url": "wishes",
+					"title": "Пожелания",
+					"visibility": "true"
+				},
+				{
+					"url": "index",
+					"title": "Новости",
+					"visibility": "true"
+				},
+				{
+					"url": "index",
+					"title": "Контакты",
+					"visibility": "true"
+				}
+			]
+		}
+	},
+	"pages": {
+		"index": {
+			"body": {
+				"type": "root",
+				"childs": []
+			},
+			"widgets": {
+				"ul-id-main-menu": {
+					"id": "ul-id-main-menu",
+					"controls": "e",
+					"fieldPath": "menu",
+					"type": "mainmenu"
+				}
+			}
+		}
+	},
+	"status": "develope",
+	"widgetsDesigns": {
+		"goods": {
+			"default": {
+				"layout": "default"
+			}
+		},
+		"review": {
+			"simple": {
+				"layout": "first"
+			}
+		}
+	}
+}

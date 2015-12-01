@@ -1,0 +1,14 @@
+Error in plugin 'gulp-less'
+Message:
+    No matching definition was found for `.pagination_color()` in file /home/www/projects/ulight/template-server/ulight12/views/templates/signum_sanya/css/fish.less line no. 147
+Details:
+    type: Syntax
+    filename: /home/www/projects/ulight/template-server/ulight12/views/templates/signum_sanya/css/fish.less
+    index: 3409
+    line: 147
+    callLine: NaN
+    callExtract: undefined
+    column: 1
+    extract: 	},	.generate-sites(`config.sites.count()`);,	.generate-sites(@sites, @site: 1) when (@site =< @sites) {
+    lineNumber: 147
+    fileName: /home/www/projects/ulight/template-server/ulight12/views/templates/signum_sanya/css/fish.less

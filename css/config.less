@@ -1,0 +1,235 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,700italic,700,500italic,500,400italic,300italic,300&subset=latin,greek,greek-ext,cyrillic-ext,latin-ext,cyrillic);
+@font-face {
+	font-family: 'FontAwesome';
+	src: url('../fonts/fontawesome/fontawesome-webfont.eot');
+	src: url('../fonts/fontawesome/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/fontawesome/fontawesome-webfont.woff') format('woff'),
+		 url('../fonts/fontawesome/fontawesome-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Icomoon';
+	src:url('../fonts/icomoon/icomoon.eot?hhk3fx');
+	src:url('../fonts/icomoon/icomoon.eot?#iefixhhk3fx') format('embedded-opentype'),
+		url('../fonts/icomoon/icomoon.woff?hhk3fx') format('woff'),
+		url('../fonts/icomoon/icomoon.ttf?hhk3fx') format('truetype'),
+		url('../fonts/icomoon/icomoon.svg?hhk3fx#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'yandex';
+	src: url('../fonts/yandex/yandex.eot');
+	src: url('../fonts/yandex/yandex.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/yandex/yandex.woff') format('woff'),
+	url('../fonts/yandex/yandex.ttf') format('truetype'),
+	url('../fonts/yandex/yandex.svg#yandex') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.Icomoon{
+    font-family: 'Icomoon',sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.FontAwesome{
+    font-family: 'FontAwesome',sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+@white: #ffffff;
+
+@font: 'Ubuntu', sans-serif;;
+@fontSizeH1: 45px;	@fontLineH1: 60px;
+@fontSizeH2: 38px;	@fontLineH2: 55px;
+@fontSizeH3: 30px;	@fontLineH3: 45px;
+@fontSizeH4: 20px;	@fontLineH4: 30px;
+@fontSizeH5: 15px;	@fontLineH5: 25px;
+@fontWeight: normal;
+
+
+.border-radius(@radius1, @radius2, @radius3, @radius4) {
+	-webkit-border-radius: @radius1 @radius2 @radius3 @radius4;
+	-moz-border-radius: @radius1 @radius2 @radius3 @radius4;
+	-ms-border-radius: @radius1 @radius2 @radius3 @radius4;
+	-o-border-radius: @radius1 @radius2 @radius3 @radius4;
+	border-radius: @radius1 @radius2 @radius3 @radius4;
+}
+.fonts(@size) {
+	font-family: @font;
+	font-weight: @fontWeight;
+	& when (@size = h1) {
+		font-size: @fontSizeH1;
+		line-height: @fontLineH1;
+	}
+	& when (@size = h2) {
+		font-size: @fontSizeH2;
+		line-height: @fontLineH2;
+	}
+	& when (@size = h3) {
+		font-size: @fontSizeH3;
+		line-height: @fontLineH3;
+	}
+	& when (@size = h4) {
+		font-size: @fontSizeH4;
+		line-height: @fontLineH4;
+	}
+	& when (@size = p) {
+		font-size: @fontSizeH5;
+		line-height: @fontLineH5;
+	}
+}
+.buttonBehavior(@design, @size ) {
+	@small-button-size: 125px;
+	@middle-button-size: 145px;
+	@large-button-size: 160px;
+	.transition();
+	.fonts(p);
+	font-family: @font;
+	font-weight: bold;
+    text-decoration: none !important;
+    text-align: center;
+    text-transform: uppercase;
+    outline: none;
+    display: inline-block;
+	position: relative;
+    word-break: break-word;
+	margin: 7px 0;
+	& when (@design = 1), (@design = 2), (@design = 3) {
+		& when (@size = 1) { min-width: @small-button-size; }
+		& when (@size = 2) { min-width: @middle-button-size; }
+		& when (@size = 3) { min-width: @large-button-size; }
+	}
+	& when (@design = 2), (@design = 3) {
+		.border-radius(4px, 4px, 4px, 4px);
+		&:before {
+			.transition();
+			.border-radius(5px, 5px, 5px, 5px);
+			content: '';
+			display: block;
+			position: absolute;
+			width: calc(~"100% + 12px");
+			height: calc(~"100% + 12px");
+			border: 2px solid;
+			top: -6px;
+			left: -6px;
+		}
+		& when (@size = 1) { min-width: 117px; }
+		& when (@size = 2) { min-width: 137px; }
+		& when (@size = 3) { min-width: 157px; }
+		&:hover:before {
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+		}
+	}
+	& when (@design = 1) {
+		.border-radius(5px, 5px, 5px, 5px);
+		& when (@size = 1) { padding: 10px 20px; }
+		& when (@size = 2) { padding: 12px 30px; }
+		& when (@size = 3) { padding: 15px 40px; }
+	}
+	& when (@design = 2) {
+		& when (@size = 1) { padding: 6px 20px; }
+		& when (@size = 2) { padding: 8px 30px; }
+		& when (@size = 3) { padding: 11px 40px; }
+	}
+	& when (@design = 3) {
+		.border-radius(30px, 30px, 30px, 30px);
+		&:before {
+			.border-radius(31px, 31px, 31px, 31px);
+			height: calc(~"100% + 6px");
+			top: -3px;
+		}
+		& when (@size = 1) { padding: 8px 20px; }
+		& when (@size = 2) { padding: 10px 30px; }
+		& when (@size = 3) { padding: 13px 40px;}
+	}
+
+}
+.buttonColor(@design, @blockBg, @text1, @text2, @text3, @block1, @block2, @block3, @block4) {
+	& when (@design = 1) {
+		background: @text2;
+        color: @white;
+		&:hover { background: lighten(@text2, 10%); }
+	}
+	& when (@design = 2), (@design = 3) {
+		background: @text2;
+		border: 2px solid @text2;
+        color: @white;
+		&:before { border-color: @text2; }
+		&:hover {
+			background: lighten(@text2, 10%);
+			border-color: lighten(@text2, 10%);
+			&:before { border-color: lighten(@text2, 10%); }
+		}
+	}
+}
+.widget_title() {
+	.fonts(h4);
+	text-align: left;
+	font-weight: bold;
+	margin: 0 0 25px 0;
+	display: block;
+}
+.transition {
+	-webkit-transition: 0.3s all ease;
+	-moz-transition: 0.3s all ease;
+	-ms-transition: 0.3s all ease;
+	-o-transition: 0.3s all ease;
+	transition: 0.3s all ease;
+}
+.pagination {
+	.transition;
+	.border-radius( 3px, 3px, 3px, 3px);
+	width: 16px;
+	height: 16px;
+	margin: 7px;
+	cursor: pointer;
+	border: 2px solid;
+}
+.pagination_color(@text2) {
+	background: transparent;
+	border-color: red;
+	&:hover {
+		background: lighten(@text2, 10%);
+		border-color: lighten(@text2, 10%);
+	}
+}
+.fa {
+	font: normal normal normal 14px/1 'FontAwesome';
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+}
+.textCenter{
+	text-align: center;
+	text-align: -webkit-center;
+	text-align: -moz-center;
+}
+.textLeft{
+	text-align: left;
+	text-align: -webkit-left;
+	text-align: -moz-left;
+}
+.textRight{
+	text-align: right;
+	text-align: -webkit-right;
+	text-align: -moz-right;
+}
+
+
+
