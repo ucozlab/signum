@@ -224,7 +224,139 @@
 	}
 }
 
+.mainmenu {
+	.behavior() {
+		// Переменные для отображения меню в десктопном виде
+		@menu-leftMargin: 0px;                 // Отступ слева и справа у меню
+		@menu-topMargin: 0px;                   // Отступ сверху у всего меню
+		@menu-height: 75px;                     // Высота меню
 
+		// Переменные для настройки внешнего вида ссылок
+		@menuNav-fontSize: 15px;                // Размер шрифта верхнего уровня
+		@menuNested-fontSize: 15px;             // Размер шрифта вложенного меню
+		@menuMobile-fontSize: 15px;             // Размер шрифта мобильного меню
+		@menu-fontFamily: Helvetica;            // Стиль шрифта у ссылок верхнего уровня
+		@menu-fontWeight: normal;               // Жирность шрифта у ссылок верхнего уровня
+		@menu-textDecotarion: none;             // Подчеркивание текста у ссылок верхнего уровня
+		@menu-textTransform: uppercase;         // Трансформирование текста у ссылок верхнего уровня
+
+		// Переменные для настройки размеров и отступов
+		@menuNav-itemLeftPadding: 0px;          // Отступ слева и справа у блоков верхнего уровня
+		@menuNav-itemLinkTopPadding: 30px;      // Отступ сверху и снизу у ссылки верхнего уровня
+		@menuNested-itemLinkTopPadding: 15px;   // Отступ сверху и снизу у ссылки вложенного меню
+		@menu-itemLinkLeftPadding: 20px;        // Отступ слева и справа у ссылки всех уровней
+
+		@menuNested-itemTopPadding: 0px;        // Отступ сверху и снизу у блока вложенного меню
+		@menuNested-itemLeftPadding: 0px;       // Отступ слева и справа у блока вложенного меню
+
+		@menuNested-itemWidth: 240px;           // Максимальная длина пункта вложенного меню
+		@menuNested-Aligment: 4;                // Отступа для вложенного меню; 0 - по краю, 1 - по тексту
+
+		// Переменные для настройки иконки у ссылок
+		@menuNav-arrowFontSize: 10px;           // Размер иконки у ссылки верхнего уровня
+		@menuNav-arrowSymbol: "\f0d7";          // Стиль иконки у ссылки верхнего уровня
+
+		@menuNested-fontSizeArrow: 10px;        // Размер иконки у ссылки вложенного меню
+		@menuNested-leftArrowSymbol: "\f0da";   // Стиль иконки ВПРАВО у ссылки вложенного меню
+		@menuNested-rightArrowSymbol: "\f0d9";  // Стиль иконки ВЛЕВО у ссылки вложенного меню
+
+		@menuToggle-arrowLeftPadding: 5px;      // Отступ слева от ссылки верхнего уровня
+		@menuNested-arrowEdgePadding: 5px;      // Отступ слева или справа от края вложенного пункта меню
+		@menuToggle-arrowMargin: 5px;           // Отступ слева от ссылки в кнопке "Еще"
+
+		// Переменные для настройки кнопки "открыть меню" в мобильном виде
+		@menuToggleButton-width: 50px;                  // Ширина кнопки
+		@menuToggleButton-height: 50px;                 // Высота кнопки
+		@menuToggleButton-spanWidth: 30px;              // Длина черточки внутри кнопки
+		@menuToggleButton-spanHeight: 4px;              // Высота черточки внутри кнопки
+		@menuToggleButton-marginBetweenSpan: 5px;       // Расстояние между кнопками
+
+		@menuToggleButton-left: calc(~"100%" - 60px);   // Отступ справа
+		@menuToggleButton-top: -60px;                   // Отступ сверху
+		@menuToggleButton-marginBottom: 20px;           // Отступ снизу от меню
+
+		// Переменные для отображения в мобильном виде
+		@menuMobile-marginTop: 15px;            // Отступ сверху
+		@menuMobile-marginBottom: 15px;         // Отступ снизу
+		@menuMobile-itemHeight: 48px;           // Высота кнопки
+
+		.leftSideMenu { .textRight(); }
+		.rightSideMenu { .textRight(); }
+		.ul-w-mainmenu-toggle-button {
+			position: absolute !important;
+		}
+		.menuMixin();
+
+		-webkit-justify-content: flex-end;
+		justify-content: flex-end;
+
+	}
+
+	.blockTheme(@blockBg, @text1, @text2, @text3) {
+		@block1r: e(`config.blocks.get(@{site}, 1).value`); @block1: color("@{block1r}");
+		@block2r: e(`config.blocks.get(@{site}, 2).value`); @block2: color("@{block2r}");
+		@block3r: e(`config.blocks.get(@{site}, 3).value`); @block3: color("@{block3r}");
+		@block4r: e(`config.blocks.get(@{site}, 4).value`); @block4: color("@{block4r}");
+
+		.menuNav-activeItem {
+			background-color: transparent !important;
+			& > a { color: @block3 !important; }
+		}
+		.menuNested-activeItem {
+			background-color: @block3 !important;
+			& > a { color: @block1 !important; }
+		}
+		.menuMobile-activeItem {
+			background-color: transparent !important;
+			& > a { color: @block3 !important; }
+		}
+
+		.menuNav-colors {
+			.transition();
+			background-color: transparent;
+			& > a {
+				.transition();
+				color: @block4;
+			}
+			&:hover {
+				background-color: transparent;
+				& > a:hover { color: @block3; }
+			}
+		}
+
+		.menuNested-colors {
+			.transition();
+			background-color: @block4;
+			& > a {
+				color: @block1;
+			}
+			&:hover {
+				background-color: @block3;
+			}
+		}
+
+		.menuMobile-colors {
+			.transition();
+			background-color: transparent;
+			& > a {
+				.transition();
+				color: @block4;
+			}
+			&:hover {
+				background-color: transparent;
+				& > a:hover { color: @block3; }
+			}
+		}
+
+		.menuMobile-button {
+			border: 2px solid @block3;
+			background-color: transparent;
+			span { background-color: @block3; }
+		}
+
+		.menuMixinColor();
+	}
+}
 
 .header {
 	.behavior() {
