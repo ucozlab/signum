@@ -50,6 +50,7 @@
     -moz-osx-font-smoothing: grayscale;
 }
 @white: #ffffff;
+@helpcolor: #d7d7d7;
 
 @font: 'Ubuntu', sans-serif;;
 @fontSizeH1: 45px;	@fontLineH1: 60px;
@@ -192,6 +193,13 @@
 	-o-transition: 0.3s all ease;
 	transition: 0.3s all ease;
 }
+.transform (@x) {
+	-webkit-transform: scale(@x);
+	-moz-transform: scale(@x);
+	-ms-transform: scale(@x);
+	-o-transform: scale(@x);
+	transform: scale(@x);
+}
 .pagination {
 	.transition;
 	.border-radius( 3px, 3px, 3px, 3px);
@@ -230,6 +238,8 @@
 	text-align: -webkit-right;
 	text-align: -moz-right;
 }
-
-
-
+.box-shadow (@string) {
+	-webkit-box-shadow: @string;
+	-moz-box-shadow:    @string;
+	box-shadow:         @string;
+}
