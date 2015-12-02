@@ -222,8 +222,13 @@
 	};
 	.blockTheme(@blockBg, @text1, @text2, @text3) {
         .h-menu {
-            border-top: 1px solid @helpcolor;
-            border-bottom: 1px solid @helpcolor;
+            .box-shadow(0 0 0 1px @white);
+            background-color: @white;
+            margin: 1px 0;
+            & when (@block = 1) {
+                .box-shadow(0 0 0 1px @helpcolor);
+                background: none;
+            }
         }
 	}
 }
@@ -367,7 +372,7 @@
                 &:hover > .ul-w-mainmenu-nested,
                 &:hover > .ul-w-mainmenu-toggle-nested {
                     padding: 10px;
-                    margin-top: 1px;/*because of border 1px*/
+                    margin-top: 1px;/*because of box shadow 1px*/
                 }
             }
         }
@@ -413,26 +418,27 @@
             }
 		}
 		.menuNav-colors {
-			& > a { color: @text2; }
-			&:hover {
-				background-color: transparent;
-                & > a {
-                    &:hover {
-                        border-color: @text2 !important;
-                        color: @text1 !important;
-                    }
-                   // &:before,
-                  //  &:after { color: @text2; }
+			& > a {
+                color: @text2;
+                &:hover {
+                    border-color: @text2;
+                    color: @text1;
                 }
-			}
+            }
+            & when (@block = 2) {
+                & > a {
+                    color: @text2;
+                    &:hover { color: @blockBg !important; }
+                }
+            }
 		}
 		.menuNested-colors {
             // background-color: @text2;
 			& > a {
-				color: @blockBg;
+				color: @white;
                 &:hover {
-                    color: @blockBg !important;
-                    border-color: @blockBg !important;
+                    color: @white !important;
+                    border-color: @white !important;
                 }
 			}
             &.ul-w-mainmenu-have-nasted:hover > a {
