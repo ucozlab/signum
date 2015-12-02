@@ -217,17 +217,35 @@
 	.behavior() {
 		.fonts(p);
 		.button-Exeption();
+        .h-menu {
+            .col-xs-12,
+            .col-sm-12 { padding: 0; }
+            .ul-w-mainmenu.ul-w-mainmenu-collapse-in {
+                .ul-w-mainmenu-nav.vtablet,
+                .ul-w-mainmenu-nav.mobile { padding: 15px !important; }
+                .ul-w-mainmenu-toggle-button:before { content: "\f00d"; }
+            }
+        }
+        @media (max-width: 768px) {
+            .h-menu {
+                .box-shadow(none) !important;
+                margin: 0 !important;
+            }
+        }
 	};
 	.siteTheme(@siteConfVal, @block1, @block2, @block3, @block4) {
 	};
 	.blockTheme(@blockBg, @text1, @text2, @text3) {
         .h-menu {
-            .box-shadow(0 0 0 1px @white);
+            .box-shadow(inset 0 0 0 1px @white);
             background-color: @white;
-            margin: 1px 0;
             & when (@block = 1) {
-                .box-shadow(0 0 0 1px @helpcolor);
+                .box-shadow(inset 0 0 0 1px @helpcolor);
                 background: none;
+            }
+            .ul-w-mainmenu.ul-w-mainmenu-collapse-in .ul-w-mainmenu-toggle-button {
+                background-color: @text2;
+                &:before { color: @white !important; }
             }
         }
 	}
@@ -276,13 +294,13 @@
 		// Переменные для настройки кнопки "открыть меню" в мобильном виде
 		@menuToggleButton-width: 50px;                  // Ширина кнопки
 		@menuToggleButton-height: 50px;                 // Высота кнопки
-		@menuToggleButton-spanWidth: 30px;              // Длина черточки внутри кнопки
-		@menuToggleButton-spanHeight: 4px;              // Высота черточки внутри кнопки
-		@menuToggleButton-marginBetweenSpan: 5px;       // Расстояние между кнопками
+		@menuToggleButton-spanWidth: 0;              // Длина черточки внутри кнопки
+		@menuToggleButton-spanHeight: 0;              // Высота черточки внутри кнопки
+		@menuToggleButton-marginBetweenSpan: 0;       // Расстояние между кнопками
 
-		@menuToggleButton-left: calc(~"100%" - 60px);   // Отступ справа
-		@menuToggleButton-top: -60px;                   // Отступ сверху
-		@menuToggleButton-marginBottom: 20px;           // Отступ снизу от меню
+		@menuToggleButton-left: calc(~"100%" - 50px);   // Отступ справа
+		@menuToggleButton-top: -50px;                   // Отступ сверху
+		@menuToggleButton-marginBottom: 0;           // Отступ снизу от меню
 
 		// Переменные для отображения в мобильном виде
 		@menuMobile-marginTop: 15px;            // Отступ сверху
@@ -378,24 +396,30 @@
         }
 
         &.vtablet, &.mobile {
+            padding: 0 !important;
+            margin: 50px 0 0 0 !important;
             .ul-w-mainmenu-item {
                 // Стили всех пунктов меню
                 & > a {
                     // Стили ссылки пункта меню
-                    .transition;
-                    padding: 4px 0 !important;
-                    margin: 5px 15px !important;
-                    display: inline-block;
-                    width: auto;
-                    border-bottom: 1px solid transparent;
+                    display: block;
+                    .transition();
+                    .border-radius(5px, 5px, 5px, 5px);
+                    border: 2px solid transparent;
+                    text-align: center;
                 }
             }
             .ul-w-mainmenu-toggle-button {
                 // Стили кнопки, раскрывающей меню
                 right: 0;
-                & > span {
-                    // Стили линий внутри кнопки
+                padding: 0;
+                &:before {
                     .transition;
+                    .FontAwesome;
+                    content: "\f0c9";
+                    line-height: 50px;
+                    font-size: 18px;
+                    text-align: center;
                 }
             }
             .ul-w-mainmenu-toggle { display: none; }
@@ -412,10 +436,7 @@
 		.menuNav-activeItem,
 		.menuNested-activeItem,
 		.menuMobile-activeItem {
-			& > a {
-                position: initial !important;
-                color: @text1 !important;
-            }
+			& > a { color: @text1; }
             & when (@block = 2) {
                 & > a { color: @blockBg; }
             }
@@ -460,24 +481,26 @@
 		}
 
 		.menuMobile-colors {
-			& > a { color: inherit; }
+            background: none;
+			& > a { color: @white; }
 			&:hover {
 				& > a:hover {
-                    border-bottom-color: @text2 !important;
-                    color: @text2 !important;
+                    border-color: @white !important;
+                    color: @white !important;
                 }
 			}
 		}
 
 		.menuMobile-button {
-			span { background-color: @text1; }
+            background: none;
+            &:before { color: @text2; }
 		}
 
 		.menuMixinColor();
 
         .ul-w-mainmenu-nested,
         .ul-w-mainmenu-toggle-nested { background-color: @text2; }
-
+        &.vtablet, &.mobile { background: @text2; }
         /*& when (@block = 2) {
             .ul-w-mainmenu-nested,
             .ul-w-mainmenu-toggle-nested { background-color: @text2 !important; }

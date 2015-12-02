@@ -1,14 +1,14 @@
 Error in plugin 'gulp-less'
 Message:
-    .box-shadow is undefined in file /home/www/projects/ulight/template-server/ulight12/views/templates/signum_sanya/css/fish.less line no. 147
+    expected ')' got '!' in file /home/www/projects/ulight/template-server/ulight12/views/templates/signum-artem/css/fishConfig.less line no. 238
 Details:
     type: Syntax
-    filename: /home/www/projects/ulight/template-server/ulight12/views/templates/signum_sanya/css/fish.less
-    index: 3409
-    line: 147
+    filename: /home/www/projects/ulight/template-server/ulight12/views/templates/signum-artem/css/fishConfig.less
+    index: 3772
+    line: 238
     callLine: NaN
     callExtract: undefined
-    column: 1
-    extract: 	},	.generate-sites(`config.sites.count()`);,	.generate-sites(@sites, @site: 1) when (@site =< @sites) {
-    lineNumber: 147
-    fileName: /home/www/projects/ulight/template-server/ulight12/views/templates/signum_sanya/css/fish.less
+    column: 39
+    extract:         @media (max-width: 768px) {,            .h-menu { .box-shadow(none !important);  },        }
+    lineNumber: 238
+    fileName: /home/www/projects/ulight/template-server/ulight12/views/templates/signum-artem/css/fishConfig.less
