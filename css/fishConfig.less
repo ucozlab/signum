@@ -221,7 +221,10 @@
 	.siteTheme(@siteConfVal, @block1, @block2, @block3, @block4) {
 	};
 	.blockTheme(@blockBg, @text1, @text2, @text3) {
-        .h-menu { border-top: 1px solid @helpcolor; }
+        .h-menu {
+            border-top: 1px solid @helpcolor;
+            border-bottom: 1px solid @helpcolor;
+        }
 	}
 }
 
@@ -360,14 +363,11 @@
                 }
                 & > .ul-w-mainmenu-nested, .ul-w-mainmenu-toggle-nested { // Стили вложенного подменю 1 уровня
                     min-width: 100%;
-
-                    /*> .ul-w-mainmenu-item {
-                        &:first-child { .border-radius(5px, 5px, 0, 0); }
-                        &:last-child { .border-radius(0, 0, 5px, 5px); }
-                    }*/
                 }
-                &:hover {
-                    > .ul-w-mainmenu-nested, .ul-w-mainmenu-toggle-nested { padding: 10px; }
+                &:hover > .ul-w-mainmenu-nested,
+                &:hover > .ul-w-mainmenu-toggle-nested {
+                    padding: 10px;
+                    margin-top: 1px;/*because of border 1px*/
                 }
             }
         }
