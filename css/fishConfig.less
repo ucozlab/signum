@@ -217,6 +217,7 @@
 	.behavior() {
 		.fonts(p);
 		.button-Exeption();
+		.price-Exeption ();
         .h-menu {
             .col-xs-12,
             .col-sm-12 { padding: 0; }
@@ -1436,6 +1437,18 @@
 
 }
 
+.price-Exeption {
+	.col-md-8 {
+		.ul-w-price.ul-w-price-vertical .ul-w-price-button{
+			min-width: 125px !important;
+			padding: 12px 10px !important;
+			@media (max-width: 991px) {
+				min-width: 145px !important;
+				padding: 12px 30px !important;
+			}
+		}
+	}
+}
 .price {
 	.behavior() {
 		.ul-w-price-title { .widget_title(); }
@@ -1447,6 +1460,7 @@
 				.ul-w-price {
 					&-table-head {
 						font-weight: 600;
+						border-bottom: 2px solid;
 						tr td{
 							text-align: left;
 							padding: 25px 10px 25px 10px;
@@ -1498,124 +1512,98 @@
 			.ul-w-price-page.active{ display: inline-flex; }
 			.ul-w-price-item {
 				padding: 0 0 95px;
-				margin: 0 20px 0 0;
-				overflow: hidden;
-				position: relative;
+				border: 2px solid;
+				border-right: none;
 				&-name {
-					font-size: 20px;
-					line-height: 30px;
-					margin: 0;
-					padding: 27px 8px 27px 8px;
+					.fonts(p);
+					position: relative;
+					padding: 45px 15px 25px 15px;
 					text-transform: none;
-					border-bottom: 3px solid;
 					font-weight: 600;
+					&:before{
+						.transform ( translate(-50%, 0) );
+						content: '';
+						position: absolute;
+						height: 2px;
+						bottom: 0;
+						width: 25%;
+						left: 50%;
+					}
 				}
 				&-price {
-					font-size: 20px;
-					line-height: 30px;
-					font-weight: 700;
-					padding: 20px 8px 7px;
+					.fonts(h4);
+					font-weight: normal;
+					padding: 20px 15px 10px;
 				}
 				&-description {
 					margin: 0;
-					padding: 13px 8px;
+					padding: 15px;
 				}
 				&-extra {
-					padding: 13px 8px;
-					text-align: center;
+					padding: 15px;
 				}
 				&-button {
-					padding: 13px 8px 30px ;
+					padding: 15px 15px 20px ;
 					bottom: 0;
 					position: absolute;
 					right: 0;
 					.ul-w-price-button {
-						.transition;
-						padding: 9px 15px;
-						min-width: 130px;
-						max-width: 100%;
+						.buttonBehavior(1, 2);
 						overflow: hidden;
 						text-overflow: ellipsis;
 						white-space: nowrap;
 					}
 				}
-				&:last-child { margin: 0; }
+				&:last-child { border-right: 2px solid; }
 			}
 			.ul-w-price-nav {
-				padding-bottom: 10px;
-				&-item {
-					.transition;
-					position: relative;
-					width: 8px;
-					height: 8px;
-					cursor: pointer;
-					margin: 0 10px;
-					border-radius: 50%;
-					&:before {
-						.transition;
-						opacity: 0;
-						content: '';
-						width: 12px;
-						height: 12px;
-						display: block;
-						position: absolute;
-						border-radius: 50%;
-						top: -2px;
-						left: -2px;
-					}
-					&.active:before { opacity: 1; }
-				}
+				padding: 35px 0 15px 0;
+				&-item { .pagination(); }
 			}
 		}
 		@media (max-width: 991px) {
 			&.ul-w-price-horizontal {
 				.ul-w-price-title { text-align: center; }
-				.ul-w-price-table {
-					.ul-w-price {
-						&-table-head { display: none; }
-						&-table-body {
-							td {
-								display: block;
-								width: 100%;
-							}
+				.ul-w-price-table .ul-w-price {
+					&-table-head { display: none; }
+					&-table-body td {
+						display: block;
+						width: 100%;
+					}
+					&-item {
+						&-name {
+							padding: 15px;
+							text-align: center !important;
+							font-weight: bold;
 						}
-						&-item {
-							&-name {
-								padding: 15px;
-								text-align: center !important;
-								font-weight: bold;
-							}
-							&-description {
-								padding: 5px 15px;
-								text-align: center !important;
-							}
-							&-extra {
-								text-align: center !important;
-								padding: 5px 15px;
-							}
-							&-button {
-								text-align: center !important;
-								padding: 20px 10px 25px 10px;
-							}
-							&-price {
-								text-align: center !important;
-								padding: 5px 15px;
-							}
+						&-description {
+							padding: 5px 15px;
+							text-align: center !important;
+						}
+						&-extra {
+							text-align: center !important;
+							padding: 5px 15px;
+						}
+						&-button {
+							text-align: center !important;
+							padding: 20px 10px 25px 10px;
+						}
+						&-price {
+							text-align: center !important;
+							padding: 5px 15px;
 						}
 					}
 				}
 			}
 			&.ul-w-price-vertical {
-				.ul-w-price-title {
-					text-align: center !important;
-				}
+				.ul-w-price-title { text-align: center !important; }
 				.ul-w-price-page.active{
 					display: inline-block !important;
 					.ul-w-price-item {
 						width: 100%;
 						display: block !important;
 						padding: 0;
-						border: 1px solid;
+						border: 2px solid;
 						margin-bottom: 10px;
 						&-button {
 							position: inherit;
@@ -1627,6 +1615,7 @@
 						}
 					}
 				}
+				.ul-w-price-nav { padding: 15px 0; }
 			}
 		}
 	};
@@ -1635,39 +1624,33 @@
 		@block2r: e(`config.blocks.get(@{site}, 2).value`); @block2: color("@{block2r}");
 		@block3r: e(`config.blocks.get(@{site}, 3).value`); @block3: color("@{block3r}");
 		@block4r: e(`config.blocks.get(@{site}, 4).value`); @block4: color("@{block4r}");
-		&.ul-w-price-horizontal {
-			.ul-w-price-table {
-				background: red;
-				box-shadow: 0px 0px 0px 2px @helpcolor;
-				& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
-				.ul-w-price {
-					&-table-head {
-						color: @text1;
-						border-color: @text2;
-						& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
-					}
-					&-table-body tr{ border-color: @helpcolor; }
-					&-button { .buttonColor(1, @blockBg, @text1, @text2, @text3, @block1, @block2, @block3, @block4); }
+		&.ul-w-price-horizontal .ul-w-price-table {
+			.box-shadow ( 0px 0px 0px 2px @helpcolor);
+			background: @white;
+			& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
+			.ul-w-price {
+				&-table-head {
+					color: @text1;
+					border-color: @text2;
+					& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
 				}
+				&-table-body tr{ border-color: @helpcolor; }
+				&-button { .buttonColor(1, @blockBg, @text1, @text2, @text3, @block1, @block2, @block3, @block4); }
 			}
 		}
 		&.ul-w-price-vertical {
 			.ul-w-price-item {
-				border-color: @text3;
-				&-name { border-color: @text2; }
-				&-price { color: @text1; }
-				.ul-w-price-button {
-					color: @white;
-					background: @text2;
-					&:hover {  }
-					&:active {  }
+				background: @white;
+				border-color: @helpcolor;
+				& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
+				&-name:before { background: @text2; }
+				&-price {
+					color: @text1;
+					& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
 				}
+				.ul-w-price-button {.buttonColor(1, @blockBg, @text1, @text2, @text3, @block1, @block2, @block3, @block4); }
 			}
-			.ul-w-price-nav-item {
-				background: @text3;
-				&:hover {  }
-				&.active:before {background: @text2; }
-			}
+			.ul-w-price-nav-item { .pagination_color(@text2); }
 		}
 	}
 }
