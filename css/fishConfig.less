@@ -417,6 +417,12 @@
                 position: initial !important;
                 color: @text1 !important;
             }
+            & when (@block = 2) {
+                & > a { color: @blockBg; }
+            }
+            & when (@block = 5) {
+                & > a { color: @text3; }
+            }
 		}
 		.menuNav-colors {
 			& > a {
@@ -430,6 +436,12 @@
                 & > a {
                     color: @text2;
                     &:hover { color: @blockBg !important; }
+                }
+            }
+            & when (@block = 5) {
+                & > a {
+                    color: @text2;
+                    &:hover { color: @text3 !important; }
                 }
             }
 		}
