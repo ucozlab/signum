@@ -217,10 +217,38 @@
 	.behavior() {
 		.fonts(p);
 		.button-Exeption();
+		.price-Exeption ();
+        .h-menu {
+            .col-xs-12,
+            .col-sm-12 { padding: 0; }
+            .ul-w-mainmenu.ul-w-mainmenu-collapse-in {
+                .ul-w-mainmenu-nav.vtablet,
+                .ul-w-mainmenu-nav.mobile { padding: 15px !important; }
+                .ul-w-mainmenu-toggle-button:before { content: "\f00d"; }
+            }
+        }
+        @media (max-width: 768px) {
+            .h-menu {
+                .box-shadow(none) !important;
+                margin: 0 !important;
+            }
+        }
 	};
 	.siteTheme(@siteConfVal, @block1, @block2, @block3, @block4) {
 	};
 	.blockTheme(@blockBg, @text1, @text2, @text3) {
+        .h-menu {
+            .box-shadow(inset 0 0 0 1px @white);
+            background-color: @white;
+            & when (@block = 1) {
+                .box-shadow(inset 0 0 0 1px @helpcolor);
+                background: none;
+            }
+            .ul-w-mainmenu.ul-w-mainmenu-collapse-in .ul-w-mainmenu-toggle-button {
+                background-color: @text2;
+                &:before { color: @white !important; }
+            }
+        }
 	}
 }
 
@@ -228,8 +256,8 @@
 	.behavior() {
 		// Переменные для отображения меню в десктопном виде
 		@menu-leftMargin: 0;                 // Отступ слева и справа у меню
-		@menu-topMargin: 0px;                   // Отступ сверху у всего меню
-		@menu-height: 40px;                     // Высота меню
+		@menu-topMargin: 0;                   // Отступ сверху у всего меню
+		@menu-height: 70px;                     // Высота меню
 
 		// Переменные для настройки внешнего вида ссылок
 		@menuNav-fontSize: 15px;                // Размер шрифта верхнего уровня
@@ -246,19 +274,19 @@
 		@menuNested-itemLinkTopPadding: 15px;   // Отступ сверху и снизу у ссылки вложенного меню
 		@menu-itemLinkLeftPadding: 20px;        // Отступ слева и справа у ссылки всех уровней
 
-		@menuNested-itemTopPadding: 0px;        // Отступ сверху и снизу у блока вложенного меню
-		@menuNested-itemLeftPadding: 0px;       // Отступ слева и справа у блока вложенного меню
+		@menuNested-itemTopPadding: 0;        // Отступ сверху и снизу у блока вложенного меню
+		@menuNested-itemLeftPadding: 0;       // Отступ слева и справа у блока вложенного меню
 
 		@menuNested-itemWidth: 240px;           // Максимальная длина пункта вложенного меню
-		@menuNested-Aligment: 4;                // Отступа для вложенного меню; 0 - по краю, 1 - по тексту
+		@menuNested-Aligment: 0;                // Отступа для вложенного меню; 0 - по краю, 1 - по тексту
 
 		// Переменные для настройки иконки у ссылок
 		@menuNav-arrowFontSize: 10px;           // Размер иконки у ссылки верхнего уровня
-		@menuNav-arrowSymbol: "\f0d7";          // Стиль иконки у ссылки верхнего уровня
+		@menuNav-arrowSymbol: "\f107";          // Стиль иконки у ссылки верхнего уровня
 
 		@menuNested-fontSizeArrow: 10px;        // Размер иконки у ссылки вложенного меню
-		@menuNested-leftArrowSymbol: "\f0da";   // Стиль иконки ВПРАВО у ссылки вложенного меню
-		@menuNested-rightArrowSymbol: "\f0d9";  // Стиль иконки ВЛЕВО у ссылки вложенного меню
+		@menuNested-leftArrowSymbol: "\f105";   // Стиль иконки ВПРАВО у ссылки вложенного меню
+		@menuNested-rightArrowSymbol: "\f104";  // Стиль иконки ВЛЕВО у ссылки вложенного меню
 
 		@menuToggle-arrowLeftPadding: 5px;      // Отступ слева от ссылки верхнего уровня
 		@menuNested-arrowEdgePadding: 5px;      // Отступ слева или справа от края вложенного пункта меню
@@ -267,13 +295,13 @@
 		// Переменные для настройки кнопки "открыть меню" в мобильном виде
 		@menuToggleButton-width: 50px;                  // Ширина кнопки
 		@menuToggleButton-height: 50px;                 // Высота кнопки
-		@menuToggleButton-spanWidth: 30px;              // Длина черточки внутри кнопки
-		@menuToggleButton-spanHeight: 4px;              // Высота черточки внутри кнопки
-		@menuToggleButton-marginBetweenSpan: 5px;       // Расстояние между кнопками
+		@menuToggleButton-spanWidth: 0;              // Длина черточки внутри кнопки
+		@menuToggleButton-spanHeight: 0;              // Высота черточки внутри кнопки
+		@menuToggleButton-marginBetweenSpan: 0;       // Расстояние между кнопками
 
-		@menuToggleButton-left: calc(~"100%" - 60px);   // Отступ справа
-		@menuToggleButton-top: -60px;                   // Отступ сверху
-		@menuToggleButton-marginBottom: 20px;           // Отступ снизу от меню
+		@menuToggleButton-left: calc(~"100%" - 50px);   // Отступ справа
+		@menuToggleButton-top: -50px;                   // Отступ сверху
+		@menuToggleButton-marginBottom: 0;           // Отступ снизу от меню
 
 		// Переменные для отображения в мобильном виде
 		@menuMobile-marginTop: 15px;            // Отступ сверху
@@ -285,8 +313,8 @@
 		.ul-w-mainmenu-toggle-button { position: absolute !important; }
 		.menuMixin();
 
-		-webkit-justify-content: flex-end;
-		justify-content: flex-end;
+		-webkit-justify-content: center;
+        justify-content: center;
 
         //------//
 
@@ -297,8 +325,9 @@
                     // Стили всех ссылок на всех уровнях
                     .transition();
 			        .border-radius(5px, 5px, 5px, 5px);
-                    display: inline-block !important;
+                    //display: inline-block !important;
                     border: 2px solid transparent;
+                    text-align: center;
                 }
                 &.ul-w-mainmenu-have-nested {
                     // Стили пункта меню, содержащего вложенный список
@@ -308,16 +337,50 @@
                     }
                 }
                 &.ul-w-mainmenu-have-nested .ul-w-mainmenu-nested,
-                .ul-w-mainmenu-toggle-nested {
+                > .ul-w-mainmenu-toggle-nested {
                     // Стили всех вложенных списков
-                    .border-radius(5px, 5px, 5px, 5px);
+                    .border-radius(0, 0, 5px, 5px);
                     .ul-w-mainmenu-item {
-                        .rightSideMenu(); // выравнивание вложеных пунктов
+
                         &.ul-w-mainmenu-have-nested {
                             // Стили подпункта меню, содержащего вложенный список
                             & > a:before, // Стили символа влево вложенного меню
                             & > a:after { // Стили символа вправо вложенного меню
                                 margin: -1px 5px 0 5px;
+                            }
+                            &:hover > .ul-w-mainmenu-nested {
+                                padding: 10px;
+                                margin: -10px 10px 0 10px;
+                                .border-radius(5px, 5px, 5px, 5px);
+                                &:before, &:after {
+                                    content: "";
+                                    position: absolute;
+                                    top: 0;
+                                    height: 100%;
+                                    width: 10px;
+                                    background: none;
+                                }
+                                &:before { right: -10px; }
+                                &:after { left: -10px; }
+                                .ul-w-mainmenu-item {
+                                    &.ul-w-mainmenu-have-nested {
+                                        &:hover > .ul-w-mainmenu-nested {
+                                            padding: 10px;
+                                            margin: -10px 10px 0 10px;
+                                            .border-radius(5px, 5px, 5px, 5px);
+                                            &:before, &:after {
+                                                content: "";
+                                                position: absolute;
+                                                top: 0;
+                                                height: 100%;
+                                                width: 10px;
+                                                background: none;
+                                            }
+                                            &:before { right: -10px; }
+                                            &:after { left: -10px; }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -325,28 +388,39 @@
                 & > .ul-w-mainmenu-nested, .ul-w-mainmenu-toggle-nested { // Стили вложенного подменю 1 уровня
                     min-width: 100%;
                 }
+                &:hover > .ul-w-mainmenu-nested,
+                &:hover > .ul-w-mainmenu-toggle-nested {
+                    padding: 10px;
+                    margin-top: 1px;/*because of box shadow 1px*/
+                }
             }
         }
 
         &.vtablet, &.mobile {
+            padding: 0 !important;
+            margin: 50px 0 0 0 !important;
             .ul-w-mainmenu-item {
                 // Стили всех пунктов меню
                 & > a {
                     // Стили ссылки пункта меню
-                    .transition;
-                    padding: 4px 0 !important;
-                    margin: 5px 15px !important;
-                    display: inline-block;
-                    width: auto;
-                    border-bottom: 1px solid transparent;
+                    display: block;
+                    .transition();
+                    .border-radius(5px, 5px, 5px, 5px);
+                    border: 2px solid transparent;
+                    text-align: center;
                 }
             }
             .ul-w-mainmenu-toggle-button {
                 // Стили кнопки, раскрывающей меню
                 right: 0;
-                & > span {
-                    // Стили линий внутри кнопки
+                padding: 0;
+                &:before {
                     .transition;
+                    .FontAwesome;
+                    content: "\f0c9";
+                    line-height: 50px;
+                    font-size: 18px;
+                    text-align: center;
                 }
             }
             .ul-w-mainmenu-toggle { display: none; }
@@ -363,31 +437,42 @@
 		.menuNav-activeItem,
 		.menuNested-activeItem,
 		.menuMobile-activeItem {
-			& > a {
-                position: initial !important;
-                color: @text1 !important;
+			& > a { color: @text1; }
+            & when (@block = 2) {
+                & > a { color: @blockBg; }
+            }
+            & when (@block = 5) {
+                & > a { color: @text3; }
             }
 		}
 		.menuNav-colors {
-			& > a { color: @text2; }
-			&:hover {
-				background-color: transparent;
-                & > a {
-                    &:hover {
-                        border-color: @text2 !important;
-                        color: @text1 !important;
-                    }
-                   // &:before,
-                  //  &:after { color: @text2; }
+			& > a {
+                color: @text2;
+                &:hover {
+                    border-color: @text2;
+                    color: @text1;
                 }
-			}
+            }
+            & when (@block = 2) {
+                & > a {
+                    color: @text2;
+                    &:hover { color: @blockBg !important; }
+                }
+            }
+            & when (@block = 5) {
+                & > a {
+                    color: @text2;
+                    &:hover { color: @text3 !important; }
+                }
+            }
 		}
 		.menuNested-colors {
+            // background-color: @text2;
 			& > a {
-				color: @blockBg;
+				color: @white;
                 &:hover {
-                    color: @blockBg !important;
-                    border-color: @blockBg !important;
+                    color: @white !important;
+                    border-color: @white !important;
                 }
 			}
             &.ul-w-mainmenu-have-nasted:hover > a {
@@ -397,24 +482,26 @@
 		}
 
 		.menuMobile-colors {
-			& > a { color: inherit; }
+            background: none;
+			& > a { color: @white; }
 			&:hover {
 				& > a:hover {
-                    border-bottom-color: @text2 !important;
-                    color: @text2 !important;
+                    border-color: @white !important;
+                    color: @white !important;
                 }
 			}
 		}
 
 		.menuMobile-button {
-			span { background-color: @text1; }
+            background: none;
+            &:before { color: @text2; }
 		}
 
 		.menuMixinColor();
 
         .ul-w-mainmenu-nested,
         .ul-w-mainmenu-toggle-nested { background-color: @text2; }
-
+        &.vtablet, &.mobile { background: @text2; }
         /*& when (@block = 2) {
             .ul-w-mainmenu-nested,
             .ul-w-mainmenu-toggle-nested { background-color: @text2 !important; }
@@ -787,7 +874,7 @@
 					display: inline-block;
 					width: 50px;
 					height: 50px;
-					margin: 12px 25px 12px 0;
+					margin: 0 25px 25px 0;
 					&.ul-w-social-icon-disabled {
 						pointer-events: none;
 						&:before {
@@ -1763,6 +1850,230 @@
 				}
 				&.ul-w-gallery-[data-src^="/"]:hover:after { color: @text2; }
 			}
+		}
+	}
+}
+
+.price-Exeption {
+	.col-md-8 {
+		.ul-w-price.ul-w-price-vertical .ul-w-price-button{
+			min-width: 125px !important;
+			padding: 12px 10px !important;
+			@media (max-width: 991px) {
+				min-width: 145px !important;
+				padding: 12px 30px !important;
+			}
+		}
+	}
+}
+
+.price {
+	.behavior() {
+		.ul-w-price-title { .widget_title(); }
+		&.ul-w-price-horizontal {
+			word-break: break-word;
+			.ul-w-price-table {
+				.border-radius(5px, 5px, 5px, 5px);
+				margin-top: 0;
+				.ul-w-price {
+					&-table-head {
+						font-weight: 600;
+						border-bottom: 2px solid;
+						tr td{
+							text-align: left;
+							padding: 25px 10px 25px 10px;
+							vertical-align: top;
+							&:first-child { padding: 25px 15px 25px 25px; }
+							&:last-child { padding: 25px 25px 25px 15px; }
+						}
+					}
+					&-table-body {
+						vertical-align: middle;
+						tr {
+							border-bottom: 2px solid;
+							text-align: left;
+							td { text-align: left; }
+							&:last-child {border: none; }
+						}
+					}
+					&-item {
+						&-name {
+							padding: 25px 10px 25px 25px;
+							min-width: 120px;
+							width: 200px;
+						}
+						&-description {
+							padding: 25px 10px 25px 10px;
+							min-width: 120px;
+						}
+						&-extra {
+							padding: 25px 10px 25px 10px;
+							min-width: 120px;
+						}
+						&-price {
+							padding: 25px 10px 25px 10px;
+							text-align: left;
+							min-width: 90px;
+							width: 120px;
+						}
+						&-button {
+							text-align: right !important;
+							min-width: 180px;
+							padding: 25px 25px 25px 10px;
+							.ul-w-price-button { .buttonBehavior(1, 1 ); }
+						}
+					}
+				}
+			}
+		}
+		&.ul-w-price-vertical {
+			.ul-w-price-page.active{ display: inline-flex; }
+			.ul-w-price-item {
+				padding: 0 0 95px;
+				border: 2px solid;
+				border-right: none;
+				&-name {
+					.fonts(p);
+					position: relative;
+					padding: 45px 15px 25px 15px;
+					text-transform: none;
+					font-weight: 600;
+					&:before{
+						.transform ( translate(-50%, 0) );
+						content: '';
+						position: absolute;
+						height: 2px;
+						bottom: 0;
+						width: 25%;
+						left: 50%;
+					}
+				}
+				&-price {
+					.fonts(h4);
+					font-weight: normal;
+					padding: 20px 15px 10px;
+				}
+				&-description {
+					margin: 0;
+					padding: 15px;
+				}
+				&-extra {
+					padding: 15px;
+				}
+				&-button {
+					padding: 15px 15px 20px ;
+					bottom: 0;
+					position: absolute;
+					right: 0;
+					.ul-w-price-button {
+						.buttonBehavior(1, 2);
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+					}
+				}
+				&:first-child { .border-radius(5px, 0, 0, 5px); }
+				&:last-child {
+					.border-radius(0, 5px, 5px, 0);
+					border-right: 2px solid;
+				}
+			}
+			.ul-w-price-nav {
+				padding: 35px 0 15px 0;
+				&-item { .pagination(); }
+			}
+		}
+		@media (max-width: 991px) {
+			&.ul-w-price-horizontal {
+				.ul-w-price-title { text-align: center; }
+				.ul-w-price-table .ul-w-price {
+					&-table-head { display: none; }
+					&-table-body td {
+						display: block;
+						width: 100%;
+					}
+					&-item {
+						&-name {
+							padding: 15px;
+							text-align: center !important;
+							font-weight: bold;
+						}
+						&-description {
+							padding: 5px 15px;
+							text-align: center !important;
+						}
+						&-extra {
+							text-align: center !important;
+							padding: 5px 15px;
+						}
+						&-button {
+							text-align: center !important;
+							padding: 20px 10px 25px 10px;
+						}
+						&-price {
+							text-align: center !important;
+							padding: 5px 15px;
+						}
+					}
+				}
+			}
+			&.ul-w-price-vertical {
+				.ul-w-price-title { text-align: center !important; }
+				.ul-w-price-page.active{
+					display: inline-block !important;
+					.ul-w-price-item {
+						.border-radius(5px, 5px, 5px, 5px);
+						width: 100%;
+						display: block !important;
+						padding: 0;
+						border: 2px solid;
+						margin-bottom: 10px;
+						&-button {
+							position: inherit;
+							.ul-w-price-button {
+								width: auto;
+								text-overflow: inherit;
+								white-space: inherit;
+							}
+						}
+					}
+				}
+				.ul-w-price-nav { padding: 15px 0; }
+			}
+		}
+	};
+	.blockTheme(@blockBg, @text1, @text2, @text3) {
+		@block1r: e(`config.blocks.get(@{site}, 1).value`); @block1: color("@{block1r}");
+		@block2r: e(`config.blocks.get(@{site}, 2).value`); @block2: color("@{block2r}");
+		@block3r: e(`config.blocks.get(@{site}, 3).value`); @block3: color("@{block3r}");
+		@block4r: e(`config.blocks.get(@{site}, 4).value`); @block4: color("@{block4r}");
+		&.ul-w-price-horizontal .ul-w-price-table {
+			.box-shadow ( 0px 0px 0px 2px @helpcolor);
+			background: @white;
+			& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
+			.ul-w-price {
+				&-table-head {
+					color: @text1;
+					border-color: @text2;
+					& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
+				}
+				&-table-body tr{ border-color: @helpcolor; }
+				&-button { .buttonColor(1, @blockBg, @text1, @text2, @text3, @block1, @block2, @block3, @block4); }
+			}
+		}
+		&.ul-w-price-vertical {
+			.ul-w-price-item {
+				background: @white;
+				border-color: @helpcolor;
+				& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
+				&-name:before { background: @text2; }
+				&-price {
+					color: @text1;
+					& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
+				}
+				.ul-w-price-button {.buttonColor(1, @blockBg, @text1, @text2, @text3, @block1, @block2, @block3, @block4); }
+			}
+			.ul-w-price-nav-item { .pagination_color(@text2); }
 		}
 	}
 }
