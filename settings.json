@@ -9,9 +9,9 @@
 	"widgetsDesigns": {
 		"goods": {
 			"default": { "layout": "default" },
-			"goods-full1": { "layout": "html1" },
-			"design3": { "layout": "html2" },
-			"design4": { "layout": "html3" }
+			"goods-full1": { "layout": "html2" },
+			"design3": { "layout": "html3" },
+			"design4": { "layout": "html1" }
 		},
 		"bloquote": {
 			"design1": { "layout": "design1", "oldDesign": "design1" },
@@ -27,8 +27,8 @@
 			"design3": { "layout": "design1", "oldDesign": "design3" }
 		},
 		"contacts": {
-			"design1": { "layout": "design1" },
-			"design2": { "layout": "design2" },
+			"design1": { "layout": "design2" },
+			"design2": { "layout": "design1" },
 			"design3": { "layout": "design1" }
 		},
 		"price": {
@@ -40,7 +40,7 @@
 		},
 		"downloadFile": {
 			"1": { "layout": "design1", "oldDesign": "1" },
-			"2": { "layout": "design1", "oldDesign": "2" },
+			"2": { "layout": "design1", "oldDesign": "1" },
 			"3": { "layout": "design1", "oldDesign": "3" }
 		}
 	}
