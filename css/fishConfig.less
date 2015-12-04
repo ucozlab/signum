@@ -219,6 +219,7 @@
 		.button-Exeption();
 		.price-Exeption ();
 		.newsInformer-Exeption();
+		.downloadFile-Exeption();
         .h-menu {
             .col-xs-12,
             .col-sm-12 { padding: 0; }
@@ -891,7 +892,6 @@
 		}
 	}
 }
-
 .button {
 	.behavior() {
 		&1 {
@@ -1500,6 +1500,7 @@
 .gallery {
 	.behavior() {
 		&.ul-widget-gallery-slideshow {
+			margin: 5px;
 			.ul-type-slider {
 				.ul-image { .border-radius(5px, 5px, 0, 0); }
 			}
@@ -1640,6 +1641,7 @@
 			}
 		}
 		&.ul-widget-gallery-grid {
+			margin: 5px;
 			.ul-w-gallery-item {
 				position: relative;
 				.caption {
@@ -1738,6 +1740,7 @@
 			}
 		}
 		&.ul-widget-gallery-collage {
+			margin: 5px;
 			.ul-w-gallery-item {
 				.caption {
 					.fonts(p);
@@ -1937,7 +1940,6 @@
 		}
 	}
 }
-
 .price {
 	.behavior() {
 		.ul-w-price-title { .widget_title(); }
@@ -2311,6 +2313,282 @@
 		&-read-more { .buttonBehavior(1, 3); }
 		@media (max-width: 640px) {
 			&-title a h3 { .fonts(h4); }
+		}
+	}
+}
+
+.feedBack {
+	margin: 5px;
+	.behavior() {
+		margin: 5px;
+		form.feedBack {
+			display: block;
+			width: 100%;
+			overflow: hidden;
+			input[type=text],
+			input[type=email],
+			input[type=tel],
+			textarea {
+				.inputs;
+				.border-radius(5px,5px,5px,5px);
+				.fonts(p);
+				border: 2px solid;
+				&:active,
+				&:focus { border: 2px solid; }
+
+			}
+			textarea { min-height: 180px; }
+			.ul-widget-feedBack {
+				&-form-group {
+					padding-top: 0;
+					padding-bottom: 15px;
+				}
+				&-header { .widget_title(); }
+				&-form-control-feedback {
+					font-size: 15px;
+					position: absolute;
+					top: 21px;
+    				right: 17px;
+					&:before { content: "*" }
+				}
+				&-captchare-fuct { margin: 0 0 30px 0; }
+			}
+			.ul-w-feedBack {
+				&-control-label { display: none; }
+				&-control-helpBlock {
+					display: block;
+					float: right;
+					margin-bottom: 70px;
+					margin-top: -16px;
+					.help-block {
+						.icon-content-special-required {
+							font-size: 15px;
+							&:before { content: "*"; }
+						}
+					}
+				}
+			}
+			.ul-w-button1 {
+				.buttonBehavior(1, 2 );
+				position: absolute;
+				right: 15px;
+				bottom: 2px;
+			}
+		}
+	};
+	.blockTheme(@blockBg, @text1, @text2, @text3) {
+		@block1r: e(`config.blocks.get(@{site}, 1).value`); @block1: color("@{block1r}");
+		@block2r: e(`config.blocks.get(@{site}, 2).value`); @block2: color("@{block2r}");
+		@block3r: e(`config.blocks.get(@{site}, 3).value`); @block3: color("@{block3r}");
+		@block4r: e(`config.blocks.get(@{site}, 4).value`); @block4: color("@{block4r}");
+		form.feedBack {
+			input[type=text],
+			input[type=email],
+			input[type=tel],
+			textarea {
+				border-color: @helpcolor;
+				color: @text1;
+				&:active,
+				&:focus { border-color: @text2; }
+			}
+			.ul-widget-feedBack {
+				&-header { color: @text1; }
+				&-form-control-feedback { color: red; }
+			}
+			.ul-w-feedBack {
+				&-control-helpBlock {
+					.help-block {
+						color: @text1;
+						.icon-content-special-required { color: red; }
+					}
+				}
+			}
+			.ul-w-button1 { .buttonColor(1, @blockBg, @text1, @text2, @text3, @block1, @block2, @block3, @block4); }
+		}
+	}
+}
+
+.downloadFile-Exeption {
+	.col-md-2 {
+		.ul-w-downloadFile-showButton a {
+			min-width: 0 !important;
+			padding-left: 10% !important;
+			padding-right: 10% !important;
+		}
+	}
+}
+.downloadFile {
+	.behavior() {
+		&.ul-w-downloadFile-style-1,
+		&.ul-w-downloadFile-style-2,
+		&.ul-w-downloadFile-style-3 {
+			.ul-w-downloadFile {
+				&-title, &-title a, &-size, &-desc { .fonts(p); }
+				&-title a {
+					font-weight: bold;
+					text-decoration: none;
+				}
+			}
+		}
+		&.ul-w-downloadFile {
+			margin: 5px;
+			&-style-1 {
+				.ul-w-downloadFile {
+					&-container {
+						.border-radius(5px,5px,5px,5px);
+						padding: 50px 10px 30px;
+						border: 2px solid;
+					}
+					&-title {
+						margin: 15px 0 7.5px;
+						clear: both;
+					}
+					&-size { margin: 7.5px 0 17.5px; }
+					&-icon {
+						font-size: 30px;
+						margin: 0px 0 15px;
+						display: inline-block;
+					}
+					&-desc {
+						margin: 17.5px 0 0;
+						padding: 0;
+						border: none;
+					}
+					&-showButton {
+						margin: 50px 0 0;
+						a {
+							.buttonBehavior(1, 2 );
+							margin: 0;
+						}
+					}
+				}
+			}
+			&-style-2 {
+				.ul-w-downloadFile {
+					&-container {
+						padding: 30px 10px 30px;
+						&.text-left {
+							& > p:not(.ul-w-downloadFile-icon) { margin-left: 35px !important; }
+						}
+						&.text-center, &.text-right {
+							.ul-w-downloadFile-icon,
+							.ul-w-downloadFile-title {
+								display: inline-block;
+								float: none;
+							}
+							.ul-w-downloadFile-icon {
+								height: 0;
+								margin-bottom: 0;
+								margin-top: -60px;
+							}
+							.ul-w-downloadFile-title { margin-left: 15px; }
+
+						}
+					}
+					&-icon {
+						font-size: 18px;
+						background: none !important;
+						width: auto;
+						height: auto;
+						margin: 0px auto 30px;
+					}
+					&-title {
+						margin: 15px 0 7.5px;
+						background: none !important;
+						padding: 0;
+					}
+					&-size {
+						margin: 7.5px 0 30px;
+						padding: 0;
+						padding-bottom: 20px;
+    					border-bottom: 2px solid;
+					}
+					&-desc {
+						margin: 0;
+						padding: 0;
+						border: none;
+					}
+					&-showButton {
+						margin: 40px 0 0;
+						a {
+							.buttonBehavior(1, 1 );
+							margin: 0;
+						}
+					}
+				}
+			}
+			&-style-3 {
+				.ul-w-downloadFile {
+					&-container { padding: 30px 10px 30px; }
+					&-icon {
+						.border-radius(50%,50%,50%,50%);
+						font-size: 30px;
+						width: 120px;
+						height: 120px;
+						margin: 0px auto 30px;
+						padding: 45px 0;
+						float: none;
+						border: 2px solid;
+						display: inline-block;
+					}
+					&-title { margin: 15px 0 7.5px; }
+					&-size { margin: 7.5px 0 30px; }
+					&-desc {
+						margin: 0;
+						padding: 0;
+						border: none;
+					}
+					&-showButton {
+						margin: 40px 0 0;
+						a {
+							.buttonBehavior(1, 2 );
+							margin: 0;
+						}
+					}
+				}
+			}
+		}
+	};
+	.blockTheme(@blockBg, @text1, @text2, @text3) {
+		@block1r: e(`config.blocks.get(@{site}, 1).value`); @block1: color("@{block1r}");
+		@block2r: e(`config.blocks.get(@{site}, 2).value`); @block2: color("@{block2r}");
+		@block3r: e(`config.blocks.get(@{site}, 3).value`); @block3: color("@{block3r}");
+		@block4r: e(`config.blocks.get(@{site}, 4).value`); @block4: color("@{block4r}");
+		&.ul-w-downloadFile-style-1,
+		&.ul-w-downloadFile-style-2,
+		&.ul-w-downloadFile-style-3 {
+			.ul-w-downloadFile-size { color: @text3; }
+		}
+		&.ul-w-downloadFile {
+			&-style-1 {
+				.ul-w-downloadFile {
+					&-container {
+						background-color: @white;
+						border-color: @helpcolor;
+					}
+					&-title a, &-desc { color: @black; }
+					&-icon { color: @text2; }
+					&-showButton a { .buttonColor(1, @blockBg, @text1, @text2, @text3, @block1, @block2, @block3, @block4); }
+				}
+			}
+			&-style-2 {
+				.ul-w-downloadFile {
+					&-title a, &-desc, &-icon { color: @text1; }
+					&-size { border-color: @text2; }
+					&-showButton a { .buttonColor(1, @blockBg, @text1, @text2, @text3, @block1, @block2, @block3, @block4); }
+				}
+			}
+			&-style-3 {
+				.ul-w-downloadFile {
+					&-icon {
+						color: @text2;
+						background-color: @white;
+						border-color: @helpcolor;
+					}
+					&-title a, &-desc { color: @text1; }
+					&-showButton a { .buttonColor(1, @blockBg, @text1, @text2, @text3, @block1, @block2, @block3, @block4); }
+				}
+			}
 		}
 	}
 }
