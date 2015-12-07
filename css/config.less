@@ -51,6 +51,7 @@
 }
 @white: #ffffff;
 @helpcolor: #d7d7d7;
+@black: #252525;
 
 @font: 'Ubuntu', sans-serif;;
 @fontSizeH1: 45px;	@fontLineH1: 60px;
@@ -246,4 +247,18 @@
 	-webkit-box-shadow: @string;
 	-moz-box-shadow:    @string;
 	box-shadow:         @string;
+}
+.inputs{
+    padding: 10.5px 15px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    line-height: normal;
+    -webkit-appearance: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    outline: none;
+    &:active, &:focus{
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
 }
