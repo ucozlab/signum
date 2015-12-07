@@ -388,11 +388,13 @@
                 & > .ul-w-mainmenu-nested, .ul-w-mainmenu-toggle-nested { // Стили вложенного подменю 1 уровня
                     min-width: 100%;
                 }
+                &.active > .ul-w-mainmenu-toggle-nested,
                 &:hover > .ul-w-mainmenu-nested,
                 &:hover > .ul-w-mainmenu-toggle-nested {
                     padding: 10px;
                     margin-top: 1px;/*because of box shadow 1px*/
                 }
+                &:hover > .ul-w-mainmenu-toggle-nested > .ul-w-mainmenu-item { display: block !important; }
             }
         }
 
