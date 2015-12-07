@@ -2117,12 +2117,11 @@
 		&.ul-w-price-horizontal .ul-w-price-table {
 			.box-shadow ( 0px 0px 0px 2px @helpcolor);
 			background: @white;
-			& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
+			color: @black;
 			.ul-w-price {
 				&-table-head {
-					color: @text1;
+					color: @black;
 					border-color: @text2;
-					& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
 				}
 				&-table-body tr{ border-color: @helpcolor; }
 				&-button { .buttonColor(1, @blockBg, @text1, @text2, @text3, @block1, @block2, @block3, @block4); }
@@ -2132,12 +2131,9 @@
 			.ul-w-price-item {
 				background: @white;
 				border-color: @helpcolor;
-				& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
+				color: @black;
 				&-name:before { background: @text2; }
-				&-price {
-					color: @text1;
-					& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
-				}
+				&-price { color: @black; }
 				.ul-w-price-button {.buttonColor(1, @blockBg, @text1, @text2, @text3, @block1, @block2, @block3, @block4); }
 			}
 			.ul-w-price-nav-item { .pagination_color(@text2); }
@@ -2251,13 +2247,12 @@
 			background: @white;
 			border-color: @helpcolor;
 			&-title a {
-				color: @text1;
-				& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
+				color: @black;
 			}
 			&-content {
 				hr { border-color: @text3; }
 				& when ( @block = 2 ), ( @block = 5 ) {
-					p, .g-color-text-1 { color: @blockBg !important;}
+					p, .g-color-text-1 { color: @black !important;}
 				}
 			}
 			&-footer {
@@ -2474,20 +2469,13 @@
 								background: @white;
 								border-color: @helpcolor;
 							}
-							&-name {
-								color: @text1;
-								& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
-							}
+							&-name { color: @black; }
 							&-extra { color: @text3; }
 							&-text {
 								background: @white;
 								border-color: @helpcolor;
 								color: @text1;
-								p, span { color: @text1; }
-								& when ( @block = 2 ), ( @block = 5 ) {
-									color: @blockBg;
-									p, span { color: @blockBg; }
-								}
+								p, span { color: @black; }
 							}
 						}
 					}
@@ -2800,238 +2788,122 @@
 
 .goods {
 	.behavior() {
-		&.default {
-			.ul-goods-view-item {
-				padding: 0;
-				margin: 0 !important;
-				border: none;
-				.ul-goods-view {
-					&-image-wrap {
-						.border-radius(50%, 50%, 50%, 50%);
-						width: 170px;
-						height: 170px;
-						margin: 0 auto;
-						padding: 0;
-						position: inherit;
-						left: inherit;
-					}
-					&-image { .border-radius(50%, 50%, 50%, 50%); }
-					&-title {
-						.fonts(p);
-						font-weight: bold;
-						border: none;
-						word-break: break-word;
-						margin: 0;
-						padding: 25px 10px 15px 10px;
-						border-bottom: 2px solid;
-					}
-					&-details {
-						.fonts(p);
-						border: none;
-						padding: 0 10px 0;
-					}
-					&-price {
-						font-weight: bold;
-						margin: 0;
-						padding: 25px 0 5px 0;
-						word-break: break-word;
-					}
-					&-descr {
-						margin: 0;
-						padding: 25px 0px 0px;
-					}
-					&-button {
-						padding: 15px 0px;
-						margin: 0;
-						&-link { .buttonBehavior(1, 2 ); }
-					}
+		margin: 10px 5px;
+		&.default .ul-goods-view-item {
+			padding: 0;
+			margin: 0 !important;
+			border: none;
+			.ul-goods-view {
+				&-image-wrap {
+					.border-radius(50%, 50%, 50%, 50%);
+					width: 170px;
+					height: 170px;
+					margin: 0 auto;
+					padding: 0;
+					position: inherit;
+					left: inherit;
+				}
+				&-image { .border-radius(50%, 50%, 50%, 50%); }
+				&-title {
+					.fonts(p);
+					font-weight: bold;
+					border: none;
+					word-break: break-word;
+					margin: 0;
+					padding: 25px 10px 15px 10px;
+					border-bottom: 2px solid;
+				}
+				&-details {
+					.fonts(p);
+					border: none;
+					padding: 0 10px 0;
+				}
+				&-price {
+					.fonts(p);
+					font-weight: bold;
+					margin: 0;
+					padding: 25px 0 5px 0;
+					word-break: break-word;
+				}
+				&-descr {
+					margin: 0;
+					padding: 25px 0px 0px;
+				}
+				&-button {
+					padding: 15px 0px;
+					margin: 0;
+					&-link { .buttonBehavior(1, 2 ); }
 				}
 			}
 		}
-//		&.goods-full1 {
-//			.ul-goods-view-item {
-//				border: 3px solid;
-//				.ul-goods-view {
-//					&-image-wrap--icon { height: 295px; }
-//					&-title {
-//						border: none;
-//						&:before { display: none; }
-//					}
-//					&-details { border: none; }
-//					&-price { padding: 15px 0 5px; }
-//					&-descr { padding: 10px 0px 10px; }
-//				}
-//			}
-//		}
-//		&.design3 {
-//			.ul-goods-view-item {
-//				.ul-goods-view {
-//					&-image-wrap--icon { height: 180px; }
-//					&-title {
-//						border: none;
-//						padding: 10px 10px 5px;
-//					}
-//					&-details {
-//						border: none;
-//						padding: 0;
-//					}
-//					&-price {
-//						padding: 0 0 15px;
-//						&:first-child { padding: 15px 0; }
-//					}
-//					&-descr { padding: 5px 0 10px; }
-//					&-button {
-//						padding: 5px 0px 0;
-//						&-link { width: 100%; }
-//					}
-//				}
-//			}
-//		}
-//		&.design4 {
-//			.ul-goods-view-item {
-//				padding: 0;
-//				border: 3px solid;
-//				display: table;
-//				.ul-goods-view {
-//					&-image-wrap { width: 46%; }
-//					&-details {
-//						overflow: visible;
-//						display: table;
-//						width: 54%;
-//						padding: 0;
-//						word-break: break-all;
-//						padding: 10px;
-//						&:first-child {	width: 100%; }
-//					}
-//					&-title {
-//						position: relative;
-//						display: table-caption;
-//						padding: 15px 10px 10px;
-//						margin: 0 0 20px 0;
-//						border: none;
-//						text-align: center;
-//						border-bottom: 1px solid;
-//						&:before {
-//							content: '';
-//							position: absolute;
-//							bottom: -2px;
-//							left: 50%;
-//							display: block;
-//							height: 3px;
-//							width: 33%;
-//							margin: 0 !important;
-//							transform: translateX(-50%);
-//							-webkit-transform: translateX(-50%);
-//							-ms-transform: translateX(-50%);
-//						}
-//						&:after {
-//							content: '';
-//							display: block;
-//							position: absolute;
-//							width: 1px;
-//							height: 1px;
-//							right: -1px;
-//							bottom: -1px;
-//						}
-//					}
-//					&-price {
-//						padding: 10px;
-//						text-align: center;
-//					}
-//					&-descr {
-//						display: table-header-group;
-//						padding: 10px;
-//						text-align: center;
-//					}
-//					&-button {
-//						display: block;
-//						margin: 0;
-//						padding: 10px;
-//						text-align: center;
-//						&-link {
-//							min-width: 150px;
-//							padding: 9px 10px;
-//							white-space: inherit;
-//						}
-//					}
-//				}
-//			}
-//		}
-//		@media (max-width: 991px) {
-//			&.design4 .ul-goods-view-button-link {
-//				min-width: 150px;
-//				width: inherit;
-//			}
-//		}
-//		@media (max-width: 480px) {
-//			&.design4 .ul-goods-view-button-link { min-width: 125px; }
-//			&.design4 {
-//				.ul-goods-view-image-wrap, .ul-goods-view-details {
-//					width: 100% !important;
-//					height: auto;
-//				}
-//
-//			}
-//		}
+		&.design4 .ul-goods-view-item {
+			.border-radius(5px, 5px, 5px, 5px);
+			border: 2px solid;
+			.ul-goods-view {
+				&-image-wrap {
+					min-height: 180px;
+					&--icon {
+						padding: 0;
+						height: 180px;
+					}
+				}
+				&-image {
+					width: calc(~"100% + 4px");
+					left: -2px;
+				}
+				&-title {
+					.fonts(p);
+					font-weight: bold;
+					border: none;
+					word-break: break-word;
+					padding: 25px 10px;
+				}
+				&-details {
+					.fonts(p);
+					border: none;
+					padding: 0 10px 0;
+				}
+				&-price {
+					.fonts(p);
+					font-weight: bold;
+					margin: 0;
+					padding: 25px 0 5px 0;
+					word-break: break-word;
+				}
+				&-descr {
+					margin: 0;
+					padding: 25px 0px 0px;
+				}
+				&-button {
+					padding: 15px 0px;
+					margin: 0;
+					&-link { .buttonBehavior(1, 2 ); }
+				}
+			}
+		}
 	};
 	.blockTheme(@blockBg, @text1, @text2, @text3) {
-		&.default, &.goods-full1 {
-			.ul-goods-view-item .ul-goods-view {
-				&-title {
-					border-color: @text3;
-					&:before { background-color: @text2;}
-				}
-				&-details { border-color: @text3; }
-				&-price { color: @text3; }
-				&-button-link {
-					color: @white;
-					background: @text2;
-					&:hover {  }
-					&:active {  }
-				}
-			}
+		@block1r: e(`config.blocks.get(@{site}, 1).value`); @block1: color("@{block1r}");
+		@block2r: e(`config.blocks.get(@{site}, 2).value`); @block2: color("@{block2r}");
+		@block3r: e(`config.blocks.get(@{site}, 3).value`); @block3: color("@{block3r}");
+		@block4r: e(`config.blocks.get(@{site}, 4).value`); @block4: color("@{block4r}");
+		&.default .ul-goods-view-item .ul-goods-view {
+			&-image-wrap { background: @text2; }
+			&-icon { color: @white; }
+			&-title { border-color: @text2; }
+			&-price { color: @text1; }
+			&-button-link { .buttonColor(1, @blockBg, @text1, @text2, @text3, @block1, @block2, @block3, @block4); }
 		}
-		&.goods-full1 .ul-goods-view-item{
-			border-color: @text2;
-			.ul-goods-view-price { color: @text1; }
-		}
-		&.design3 .ul-goods-view-item .ul-goods-view {
-			&-title {
-				background: @text2;
-				color: @white;
-			}
-			&-price {
-				background: @text2;
-				color: @white;
-			}
-			&-descr {
-				background: @text2;
-				color: @white;
-			}
-			&-button {
-				&-link {
-					color: @white;
-					background: @text2;
-					&:hover {  }
-					&:active {  }
-				}
-			}
-		}
-		&.design4 .ul-goods-view-item{
-			border-color: @text2;
+		&.design4 .ul-goods-view-item {
+			background: @white;
+			border-color: @helpcolor;
+			color: @black;
 			.ul-goods-view {
-				&-title {
-					border-color: @text3;
-					&:before { background: @text2; }
-					&:after { background: @text3; }
-				}
-				&-price { color: @text1; }
-				&-button-link {
-					color: @white;
-					background: @text2;
-					&:hover {  }
-					&:active {  }
-				}
+				&-image-wrap { background: transparent; }
+				&-icon { color: @text2; }
+				&-title { border-color: @text2; }
+				&-price { color: @black; }
+				&-button-link { .buttonColor(1, @blockBg, @text1, @text2, @text3, @block1, @block2, @block3, @block4); }
 			}
 		}
 	}
