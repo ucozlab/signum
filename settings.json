@@ -40,7 +40,7 @@
 		},
 		"downloadFile": {
 			"1": { "layout": "design1", "oldDesign": "1" },
-			"2": { "layout": "design1", "oldDesign": "1" },
+			"2": { "layout": "design1", "oldDesign": "2" },
 			"3": { "layout": "design1", "oldDesign": "3" }
 		}
 	}
