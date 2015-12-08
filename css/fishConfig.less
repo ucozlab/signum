@@ -455,11 +455,13 @@
                 & > .ul-w-mainmenu-nested, .ul-w-mainmenu-toggle-nested { // Стили вложенного подменю 1 уровня
                     min-width: 100%;
                 }
+                &.active > .ul-w-mainmenu-toggle-nested,
                 &:hover > .ul-w-mainmenu-nested,
                 &:hover > .ul-w-mainmenu-toggle-nested {
                     padding: 10px;
                     margin-top: 1px;/*because of box shadow 1px*/
                 }
+                &:hover > .ul-w-mainmenu-toggle-nested > .ul-w-mainmenu-item { display: block !important; }
             }
         }
 
@@ -2131,12 +2133,11 @@
 		&.ul-w-price-horizontal .ul-w-price-table {
 			.box-shadow ( 0px 0px 0px 2px @helpcolor);
 			background: @white;
-			& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
+			color: @black;
 			.ul-w-price {
 				&-table-head {
-					color: @text1;
+					color: @black;
 					border-color: @text2;
-					& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
 				}
 				&-table-body tr{ border-color: @helpcolor; }
 				&-button { .buttonColor(1, @blockBg, @text1, @text2, @text3, @block1, @block2, @block3, @block4); }
@@ -2146,12 +2147,9 @@
 			.ul-w-price-item {
 				background: @white;
 				border-color: @helpcolor;
-				& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
+				color: @black;
 				&-name:before { background: @text2; }
-				&-price {
-					color: @text1;
-					& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
-				}
+				&-price { color: @black; }
 				.ul-w-price-button {.buttonColor(1, @blockBg, @text1, @text2, @text3, @block1, @block2, @block3, @block4); }
 			}
 			.ul-w-price-nav-item { .pagination_color(@text2); }
@@ -2265,13 +2263,12 @@
 			background: @white;
 			border-color: @helpcolor;
 			&-title a {
-				color: @text1;
-				& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
+				color: @black;
 			}
 			&-content {
 				hr { border-color: @text3; }
 				& when ( @block = 2 ), ( @block = 5 ) {
-					p, .g-color-text-1 { color: @blockBg !important;}
+					p, .g-color-text-1 { color: @black !important;}
 				}
 			}
 			&-footer {
@@ -2488,20 +2485,13 @@
 								background: @white;
 								border-color: @helpcolor;
 							}
-							&-name {
-								color: @text1;
-								& when ( @block = 2 ), ( @block = 5 ) { color: @blockBg; }
-							}
+							&-name { color: @black; }
 							&-extra { color: @text3; }
 							&-text {
 								background: @white;
 								border-color: @helpcolor;
 								color: @text1;
-								p, span { color: @text1; }
-								& when ( @block = 2 ), ( @block = 5 ) {
-									color: @blockBg;
-									p, span { color: @blockBg; }
-								}
+								p, span { color: @black; }
 							}
 						}
 					}
@@ -2833,3 +2823,157 @@
 	}
 }
 
+.goods-Exeption {
+	.col-md-3 {
+		.ul-goods-layout.design3 {
+			.ul-goods-view {
+				&-image-wrap--icon,
+				&-image-wrap,
+				&-details { width: 100% !important; }
+				&-details {
+					padding-left: 0 !important;
+					padding-top: 15px !important;
+				}
+			}
+		}
+	}
+}
+.goods {
+	.behavior() {
+		margin: 10px 5px;
+		&.goods-full1 {
+			.ul-goods-view-item {
+				padding-left: 10px;
+				padding-right: 10px;
+				.ul-goods-view {
+					&-image-wrap--icon {
+						background: none !important;
+						border: none;
+						padding: 20.572% 0 !important;
+						text-align: left;
+					}
+					&-image-wrap {
+						min-height: 180px !important;
+						position: inherit;
+						padding: 0 0 68.575% 0;
+					}
+					&-image { .border-radius(5px,5px,5px,5px); }
+					&-title {
+						.fonts(p);
+						padding-bottom: 15px;
+						border-bottom: 2px solid;
+
+					}
+					&-details {
+						padding: 25px 0 !important;
+						border: none;
+					}
+					&-price {
+						.fonts(p);
+						padding: 15px 0 5px;
+					}
+					&-descr {
+						.fonts(p);
+						padding: 20px 0px 10px;
+					}
+					&-button-link {
+						.buttonBehavior(1, 2 );
+						margin-top: 15px;
+					}
+				}
+			}
+		}
+		&.design3 {
+			.ul-goods-view-item {
+				display: table;
+				width: 100%;
+				padding: 0;
+				border: none;
+				.ul-goods-view {
+					&-image-wrap--icon,
+					&-image-wrap {
+						.border-radius(5px,5px,5px,5px);
+						width: 46%;
+						height: 180px;
+					}
+					&-image { .border-radius(5px,5px,5px,5px); }
+					&-title {
+						.fonts(p);
+						border: none;
+						padding: 0 0 5px;
+					}
+					&-details {
+						display: table;
+						width: 54%;
+						border: none;
+						padding: 0;
+						padding-left: 7%;
+					}
+					&-price {
+						.fonts(p);
+						padding: 15px 0 0;
+						&:first-child { padding: 15px 0; }
+					}
+					&-descr {
+						.fonts(p);
+						padding: 5px 0 10px;
+					}
+					&-button {
+						padding: 5px 0px 0;
+						&-link { .buttonBehavior(1, 2 ) !important; }
+					}
+				}
+			}
+		}
+	};
+	.blockTheme(@blockBg, @text1, @text2, @text3) {
+		@block1r: e(`config.blocks.get(@{site}, 1).value`); @block1: color("@{block1r}");
+		@block2r: e(`config.blocks.get(@{site}, 2).value`); @block2: color("@{block2r}");
+		@block3r: e(`config.blocks.get(@{site}, 3).value`); @block3: color("@{block3r}");
+		@block4r: e(`config.blocks.get(@{site}, 4).value`); @block4: color("@{block4r}");
+		&.goods-full1 {
+			.ul-goods-view-item .ul-goods-view {
+				&-image-wrap {
+					background: transparent;
+					border: transparent;
+				}
+				&-title {
+					color: @text1;
+					border-color: @text2;
+					&:before { background-color: @text2;}
+				}
+				&-details {
+					color: @text1;
+				}
+				&-price { color: @text1; }
+				&-button-link {
+					.buttonColor(1, @blockBg, @text1, @text2, @text3, @block1, @block2, @block3, @block4);
+					&:hover {  }
+					&:active {  }
+				}
+			}
+		}
+		&.design3 .ul-goods-view-item .ul-goods-view {
+			&-image-wrap {
+				background-color: @text2;
+				color: @white;
+			}
+			&-title {
+				color: @text1;
+			}
+			&-price {
+				color: @text1;
+			}
+			&-descr {
+				color: @text1;
+			}
+			&-button {
+				&-link {
+					.buttonColor(1, @blockBg, @text1, @text2, @text3, @block1, @block2, @block3, @block4) !important;
+					&:hover { text-decoration: none; }
+					&:active {  }
+				}
+			}
+		}
+	}
+}
