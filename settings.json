@@ -27,9 +27,9 @@
 			"design3": { "layout": "design1", "oldDesign": "design3" }
 		},
 		"contacts": {
-			"design1": { "layout": "design2" },
+			"design1": { "layout": "design1" },
 			"design2": { "layout": "design1" },
-			"design3": { "layout": "design1" }
+			"design3": { "layout": "design3" }
 		},
 		"price": {
 			"horizontal": { "layout": "design1", "oldDesign": "horizontal" },
